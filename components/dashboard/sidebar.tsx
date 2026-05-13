@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import {
   BarChartIcon,
   BellIcon,
+  ClipboardListIcon,
   FileSpreadsheetIcon,
   LayoutDashboardIcon,
   SchoolIcon,
@@ -75,6 +76,9 @@ export function DashboardSidebar() {
   const dashActive = pathname === "/";
   const studentsActive = pathname === "/oquvchilar";
   const excelActive = pathname === "/excel-import";
+  const reportsActive = pathname === "/hisobotlar";
+  const alertsActive = pathname === "/ogohlantirishlar";
+  const settingsActive = pathname === "/sozlamalar";
 
   return (
     <aside className="flex w-[260px] shrink-0 flex-col border-r border-slate-800/80 bg-[#0f172a] text-slate-100">
@@ -84,7 +88,7 @@ export function DashboardSidebar() {
         </div>
         <div className="min-w-0 pt-0.5">
           <p className="truncate text-base font-semibold text-white">14-maktab</p>
-          <p className="truncate text-xs text-slate-400">Chorak — 2025-2026</p>
+          <p className="truncate text-xs text-slate-400">Chortoq — 2024-2025</p>
         </div>
       </div>
 
@@ -111,12 +115,28 @@ export function DashboardSidebar() {
           />
         </NavGroup>
         <NavGroup title="Monitoring">
-          <NavButton icon={<BellIcon className="h-5 w-5" />} label="Ogohlantirishlar" badge={0} />
+          <NavLink
+            href="/ogohlantirishlar"
+            icon={<BellIcon className="h-5 w-5" />}
+            label="Ogohlantirishlar"
+            active={alertsActive}
+            badge={0}
+          />
           <NavButton icon={<BarChartIcon className="h-5 w-5" />} label="Analitika" />
-          <NavButton icon={<FileSpreadsheetIcon className="h-5 w-5" />} label="Hisobotlar" />
+          <NavLink
+            href="/hisobotlar"
+            icon={<ClipboardListIcon className="h-5 w-5" />}
+            label="Hisobotlar"
+            active={reportsActive}
+          />
         </NavGroup>
         <NavGroup title="Tizim">
-          <NavButton icon={<SettingsIcon className="h-5 w-5" />} label="Sozlamalar" />
+          <NavLink
+            href="/sozlamalar"
+            icon={<SettingsIcon className="h-5 w-5" />}
+            label="Sozlamalar"
+            active={settingsActive}
+          />
         </NavGroup>
       </div>
 

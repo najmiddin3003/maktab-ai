@@ -107,6 +107,43 @@ export function CalendarIcon({ className }: { className?: string }) {
   );
 }
 
+/** Kalendar + kun raqami (oylik hisobot) */
+export function CalendarDayIcon({ className, day = "31" }: { className?: string; day?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <path d="M16 2v4M8 2v4M3 10h18" />
+      <text
+        x="12"
+        y="17.5"
+        textAnchor="middle"
+        fill="currentColor"
+        style={{ fontSize: "9px", fontWeight: 700, letterSpacing: "-0.02em" }}
+      >
+        {day}
+      </text>
+    </svg>
+  );
+}
+
+export function ClipboardListIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2" />
+      <path d="M9 12h6M9 16h6M9 8h2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function FloppyDiskIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+      <path d="M17 21v-8H7v8M7 3v5h8" />
+    </svg>
+  );
+}
+
 export function SearchIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
