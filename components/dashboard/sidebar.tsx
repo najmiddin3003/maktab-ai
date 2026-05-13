@@ -1,10 +1,15 @@
 "use client";
 
 import { ThemeToggle } from "@/components/theme-toggle";
+import {
+  DASHBOARD_SETTINGS_DEFAULT,
+  loadDashboardSettings,
+  subscribeDashboardSettings,
+} from "@/lib/dashboard-settings";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useState } from "react";
+import { useCallback, useSyncExternalStore, useState } from "react";
 import {
   BarChartIcon,
   BellIcon,
@@ -86,6 +91,11 @@ export function DashboardSidebar() {
   const pathname = usePathname();
   const router = useRouter();
   const [loggingOut, setLoggingOut] = useState(false);
+  const schoolLabel = useSyncExternalStore(
+    subscribeDashboardSettings,
+    () => loadDashboardSettings().schoolName,
+    () => DASHBOARD_SETTINGS_DEFAULT.schoolName,
+  );
 
   const dashActive = pathname === "/";
   const studentsActive = pathname === "/oquvchilar";
@@ -117,7 +127,7 @@ export function DashboardSidebar() {
           <SchoolIcon className="h-6 w-6" />
         </div>
         <div className="min-w-0 pt-0.5">
-          <p className="truncate text-base font-semibold text-slate-900 dark:text-white">14-maktab</p>
+          <p className="truncate text-base font-semibold text-slate-900 dark:text-white">{schoolLabel}</p>
           <p className="truncate text-xs text-slate-500 dark:text-slate-400">Chortoq — 2024-2025</p>
         </div>
       </div>

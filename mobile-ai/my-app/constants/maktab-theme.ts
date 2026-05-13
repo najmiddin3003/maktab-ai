@@ -1,0 +1,30 @@
+/** Maktab AI — silliq palitra */
+export const MaktabColors = {
+  navy: '#1a2744',
+  navyDeep: '#141d33',
+  teal: '#0d9488',
+  tealDark: '#0f766e',
+  /** «Bugungi ish» plitalari (skrinshot ranglari) */
+  tileBaholash: '#00897B',
+  tileMaslahat: '#4CAF50',
+  tileTarix: '#FF7043',
+  tileYordam: '#5C6BC0',
+  pageBg: '#f4f7f9',
+  cardBg: '#ffffff',
+  rowTint: '#d8f3e8',
+  textPrimary: '#0f172a',
+  textMuted: '#64748b',
+  syncGreen: '#22c55e',
+  tabActive: '#0d9488',
+  tabInactive: '#94a3b8',
+  white: '#ffffff',
+  /** Maslahat kartochkalari */
+  tipGreen: '#ecfdf5',
+  tipGreenBorder: '#a7f3d0',
+  tipBlue: '#eff6ff',
+  tipBlueBorder: '#bfdbfe',
+  tipYellow: '#fffbeb',
+  tipYellowBorder: '#fde68a',
+  tipOrange: '#fff7ed',
+  tipOrangeBorder: '#fed7aa',
+} as const;

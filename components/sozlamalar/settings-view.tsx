@@ -1,6 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import {
+  DASHBOARD_SETTINGS_DEFAULT,
+  loadDashboardSettings,
+  saveDashboardSettings,
+  type DashboardSettings,
+} from "@/lib/dashboard-settings";
+import { useEffect, useState } from "react";
 
 function Toggle({
   checked,
@@ -32,9 +38,24 @@ function Toggle({
 }
 
 export function SettingsView() {
-  const [smsOn, setSmsOn] = useState(true);
-  const [riskCap, setRiskCap] = useState(61);
-  const [schoolName, setSchoolName] = useState("14-maktab");
+  const [hydrated, setHydrated] = useState(false);
+  const [smsOn, setSmsOn] = useState(DASHBOARD_SETTINGS_DEFAULT.smsOn);
+  const [riskCap, setRiskCap] = useState(DASHBOARD_SETTINGS_DEFAULT.riskCap);
+  const [schoolName, setSchoolName] = useState(DASHBOARD_SETTINGS_DEFAULT.schoolName);
+
+  useEffect(() => {
+    const s = loadDashboardSettings();
+    setSmsOn(s.smsOn);
+    setRiskCap(s.riskCap);
+    setSchoolName(s.schoolName);
+    setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    const next: DashboardSettings = { smsOn, riskCap, schoolName };
+    saveDashboardSettings(next);
+  }, [hydrated, smsOn, riskCap, schoolName]);
 
   return (
     <section className="rounded-xl border border-slate-200/80 bg-white dark:border-slate-800/80 dark:bg-slate-900/50 dark:shadow-black/20 p-6 shadow-sm lg:p-8">
