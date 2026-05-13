@@ -17,13 +17,13 @@ export function WeeklyTrend() {
   const maxTotal = Math.max(...totals, 1);
 
   return (
-    <section className="flex h-full min-h-[220px] flex-col rounded-xl border border-slate-200/80 bg-white p-5 shadow-sm">
+    <section className="flex h-full min-h-[220px] flex-col rounded-xl border border-slate-200/80 bg-white dark:border-slate-800/80 dark:bg-slate-900/50 dark:shadow-black/20 p-5 shadow-sm">
       <div className="mb-4 flex items-center gap-2">
         <CalendarIcon className="h-5 w-5 text-teal-600" />
-        <h2 className="text-base font-semibold text-slate-900">Haftalik trend</h2>
+        <h2 className="text-base font-semibold text-slate-900 dark:text-slate-50">Haftalik trend</h2>
       </div>
       <div className="flex flex-1 flex-col">
-        <div className="flex h-36 flex-1 items-end justify-between gap-2 border-b border-slate-200 px-0.5 pb-1">
+        <div className="flex h-36 flex-1 items-end justify-between gap-2 border-b border-slate-200 px-0.5 pb-1 dark:border-slate-700">
           {weekly.map((d, i) => {
             const sum = d.high + d.medium + d.low;
             const colPct = sum === 0 ? 0 : Math.max((sum / maxTotal) * 100, 12);
@@ -31,7 +31,7 @@ export function WeeklyTrend() {
               <div key={days[i]} className="flex min-w-0 flex-1 flex-col items-center justify-end gap-2">
                 <div className="flex h-28 w-full max-w-10 flex-col justify-end">
                   <div
-                    className="flex w-full flex-col overflow-hidden rounded-md border border-slate-100 bg-slate-50 shadow-inner"
+                    className="flex w-full flex-col overflow-hidden rounded-md border border-slate-100 bg-slate-50 shadow-inner dark:border-slate-700 dark:bg-slate-800/60"
                     style={{ height: `${colPct}%`, minHeight: sum ? 8 : 0 }}
                   >
                     {sum > 0 ? (
@@ -49,12 +49,12 @@ export function WeeklyTrend() {
                     ) : null}
                   </div>
                 </div>
-                <span className="text-[11px] font-medium text-slate-500">{days[i]}</span>
+                <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400">{days[i]}</span>
               </div>
             );
           })}
         </div>
-        <div className="mt-3 flex flex-wrap gap-3 text-xs text-slate-600">
+        <div className="mt-3 flex flex-wrap gap-3 text-xs text-slate-600 dark:text-slate-400">
           <span className="flex items-center gap-1.5">
             <span className="h-2 w-2 rounded-sm bg-red-500" /> Yuqori
           </span>

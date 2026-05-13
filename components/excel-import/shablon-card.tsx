@@ -23,10 +23,10 @@ export function ShablonCard() {
   };
 
   return (
-    <section className="flex flex-col gap-4 rounded-xl border border-slate-200/80 bg-white p-5 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+    <section className="flex flex-col gap-4 rounded-xl border border-slate-200/80 bg-white dark:border-slate-800/80 dark:bg-slate-900/50 dark:shadow-black/20 p-5 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:gap-6">
       <div className="min-w-0">
-        <h2 className="text-lg font-semibold text-slate-900">Excel Shablon</h2>
-        <p className="mt-1 text-sm text-slate-500">
+        <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-50">Excel Shablon</h2>
+        <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
           Import uchun talab qilinadigan ustunlar bilan tayyor shablon. Excel yoki boshqa dasturda
           to‘ldirib, keyingi bosqichda yuklang.
         </p>

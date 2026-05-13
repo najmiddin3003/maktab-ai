@@ -25,13 +25,13 @@ function ProcessSteps() {
       {steps.map((s) => (
         <article
           key={s.n}
-          className="rounded-xl border border-slate-200/80 bg-white p-5 shadow-sm"
+          className="rounded-xl border border-slate-200/80 bg-white dark:border-slate-800/80 dark:bg-slate-900/50 dark:shadow-black/20 p-5 shadow-sm"
         >
           <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-teal-500 text-sm font-bold text-white shadow-sm">
             {s.n}
           </div>
-          <h2 className="text-base font-semibold text-slate-900">{s.title}</h2>
-          <p className="mt-1.5 text-sm leading-relaxed text-slate-500">{s.body}</p>
+          <h2 className="text-base font-semibold text-slate-900 dark:text-slate-50">{s.title}</h2>
+          <p className="mt-1.5 text-sm leading-relaxed text-slate-500 dark:text-slate-400">{s.body}</p>
         </article>
       ))}
     </div>

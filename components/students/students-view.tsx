@@ -56,8 +56,8 @@ function ScoreCell({ score, risk }: { score: number; risk: RiskLevel }) {
   const w = Math.min(Math.max(score, 0), 100);
   return (
     <div className="flex min-w-[7rem] items-center gap-2">
-      <span className="text-sm font-semibold tabular-nums text-slate-900">{score}</span>
-      <div className="h-2 flex-1 max-w-[6rem] overflow-hidden rounded-full bg-slate-100">
+      <span className="text-sm font-semibold tabular-nums text-slate-900 dark:text-slate-50">{score}</span>
+      <div className="h-2 flex-1 max-w-[6rem] overflow-hidden rounded-full bg-slate-100 dark:bg-slate-700">
         <div className={`h-full rounded-full ${barColor}`} style={{ width: `${w}%` }} />
       </div>
     </div>
@@ -114,7 +114,7 @@ export function StudentsView() {
               className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                 active
                   ? "border-teal-500 bg-teal-500 text-white shadow-sm"
-                  : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
+                  : "border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-slate-300"
               }`}
             >
               {p.dot ? (
@@ -122,7 +122,7 @@ export function StudentsView() {
               ) : null}
               {p.label}
               <span
-                className={`tabular-nums ${active ? "text-white/90" : "text-slate-400"}`}
+                className={`tabular-nums ${active ? "text-white/90" : "text-slate-400 dark:text-slate-500"}`}
               >
                 ({p.count})
               </span>
@@ -136,7 +136,7 @@ export function StudentsView() {
           aria-label="Saralash"
           value={sortKey}
           onChange={(e) => setSortKey(e.target.value as typeof sortKey)}
-          className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-900 shadow-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/25"
+          className="rounded-lg border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900 px-3 py-2 text-sm font-medium text-slate-900 dark:text-slate-50 shadow-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/25"
         >
           <option value="risk">Xavf</option>
           <option value="score">Ball</option>
@@ -144,17 +144,17 @@ export function StudentsView() {
         </select>
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 shadow-sm transition-colors hover:bg-slate-50"
+          className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 shadow-sm transition-colors hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
         >
           Eksport
         </button>
       </div>
 
-      <div className="overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-sm">
+      <div className="overflow-hidden rounded-xl border border-slate-200/80 bg-white dark:border-slate-800/80 dark:bg-slate-900/50 dark:shadow-black/20 shadow-sm">
         <div className="overflow-x-auto">
           <table className="w-full min-w-[960px] text-left text-sm">
             <thead>
-              <tr className="border-b border-slate-200 bg-slate-50/90 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+              <tr className="border-b border-slate-200 bg-slate-50/90 text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:border-slate-800 dark:bg-slate-800/50 dark:text-slate-400">
                 <th className="px-4 py-3">#</th>
                 <th className="px-4 py-3">Ism familiya</th>
                 <th className="px-4 py-3">Sinf</th>
@@ -168,11 +168,11 @@ export function StudentsView() {
                 <th className="px-4 py-3 text-right">Harakat</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
               {filtered.map((s) => (
-                <tr key={s.id} className="text-slate-800 hover:bg-slate-50/80">
+                <tr key={s.id} className="text-slate-800 dark:text-slate-200 hover:bg-slate-50/80 dark:hover:bg-slate-800/40">
                   <td className="px-4 py-3 font-medium tabular-nums text-slate-500">{s.id}</td>
-                  <td className="px-4 py-3 font-medium text-slate-900">{s.name}</td>
+                  <td className="px-4 py-3 font-medium text-slate-900 dark:text-slate-50">{s.name}</td>
                   <td className="px-4 py-3">{s.className}</td>
                   <td className="px-4 py-3">
                     <span className="rounded-md bg-teal-50 px-2 py-0.5 text-xs font-semibold text-teal-800">
@@ -182,16 +182,16 @@ export function StudentsView() {
                   <td className="px-4 py-3">
                     <span className="inline-flex items-center gap-2">
                       <RiskDot risk={s.risk} />
-                      <span className="text-slate-700">{riskLabel[s.risk]}</span>
+                      <span className="text-slate-700 dark:text-slate-300">{riskLabel[s.risk]}</span>
                     </span>
                   </td>
                   <td className="px-4 py-3">
                     <ScoreCell score={s.score} risk={s.risk} />
                   </td>
                   <td className="px-4 py-3 tabular-nums">{s.sleep}</td>
-                  <td className="px-4 py-3 text-slate-600">{s.mood}</td>
-                  <td className="px-4 py-3 text-slate-600">{s.lesson}</td>
-                  <td className="px-4 py-3 text-slate-600">{s.social}</td>
+                  <td className="px-4 py-3 text-slate-600 dark:text-slate-400">{s.mood}</td>
+                  <td className="px-4 py-3 text-slate-600 dark:text-slate-400">{s.lesson}</td>
+                  <td className="px-4 py-3 text-slate-600 dark:text-slate-400">{s.social}</td>
                   <td className="px-4 py-3 text-right">
                     <button
                       type="button"

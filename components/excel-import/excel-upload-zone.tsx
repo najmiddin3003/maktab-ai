@@ -38,8 +38,8 @@ export function ExcelUploadZone() {
   const openPicker = () => inputRef.current?.click();
 
   return (
-    <section className="rounded-xl border border-slate-200/80 bg-white p-5 shadow-sm">
-      <h2 className="text-lg font-semibold text-slate-900">Excel yuklash</h2>
+    <section className="rounded-xl border border-slate-200/80 bg-white dark:border-slate-800/80 dark:bg-slate-900/50 dark:shadow-black/20 p-5 shadow-sm">
+      <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-50">Excel yuklash</h2>
       <div
         onDragOver={(e) => {
           e.preventDefault();
@@ -54,7 +54,7 @@ export function ExcelUploadZone() {
         className={`mt-4 rounded-2xl border-2 border-dashed transition-colors ${
           isDragging
             ? "border-teal-500 bg-teal-50/60"
-            : "border-slate-200 bg-slate-50/40 hover:border-teal-300 hover:bg-teal-50/30"
+            : "border-slate-200 bg-slate-50/40 dark:border-slate-700 dark:bg-slate-900/40 hover:border-teal-300 hover:bg-teal-50/30"
         }`}
       >
         <input
@@ -70,8 +70,8 @@ export function ExcelUploadZone() {
           className="flex cursor-pointer flex-col items-center justify-center px-6 pb-4 pt-10 text-center"
         >
           <ExcelChartIllustration className="mb-4 h-16 w-16" />
-          <p className="text-base font-medium text-slate-800">Excel faylini bu yerga tashlang</p>
-          <p className="mt-2 text-sm text-slate-500">.xlsx yoki .xls — 10 MB gacha</p>
+          <p className="text-base font-medium text-slate-800 dark:text-slate-200">Excel faylini bu yerga tashlang</p>
+          <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">.xlsx yoki .xls — 10 MB gacha</p>
           {file ? (
             <p className="mt-3 text-sm font-medium text-teal-700">
               Tanlandi: {file.name} ({formatSize(file.size)})
@@ -83,7 +83,7 @@ export function ExcelUploadZone() {
           <button
             type="button"
             onClick={openPicker}
-            className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 shadow-sm transition-colors hover:bg-slate-50"
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 dark:text-slate-200 shadow-sm transition-colors hover:bg-slate-50"
           >
             <UploadIcon className="h-4 w-4 text-teal-600" />
             Namuna yuklash

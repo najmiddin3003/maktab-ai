@@ -30,10 +30,10 @@ export function RiskDonut() {
         };
 
   return (
-    <section className="flex h-full flex-col rounded-xl border border-slate-200/80 bg-white p-5 shadow-sm">
+    <section className="flex h-full flex-col rounded-xl border border-slate-200/80 bg-white p-5 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/50 dark:shadow-black/20">
       <div className="mb-4 flex items-center gap-2">
         <PieChartIcon className="h-5 w-5 text-teal-600" />
-        <h2 className="text-base font-semibold text-slate-900">Xavf taqsimoti</h2>
+        <h2 className="text-base font-semibold text-slate-900 dark:text-slate-50">Xavf taqsimoti</h2>
       </div>
       <div className="flex flex-1 flex-col items-center justify-center gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="relative grid h-40 w-40 shrink-0 place-items-center">
@@ -43,18 +43,18 @@ export function RiskDonut() {
             aria-hidden
           />
           <div className="pointer-events-none col-start-1 row-start-1 flex flex-col items-center justify-center">
-            <span className="text-2xl font-bold text-slate-900">{total}</span>
-            <span className="text-xs font-medium text-slate-500">Jami</span>
+            <span className="text-2xl font-bold text-slate-900 dark:text-slate-50">{total}</span>
+            <span className="text-xs font-medium text-slate-500 dark:text-slate-400">Jami</span>
           </div>
         </div>
         <ul className="flex w-full flex-col gap-2.5 text-sm sm:max-w-[11rem]">
           {segments.map((s) => (
             <li key={s.label} className="flex items-center justify-between gap-2">
-              <span className="flex items-center gap-2 text-slate-600">
+              <span className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
                 <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ backgroundColor: s.color }} />
                 {s.label}
               </span>
-              <span className="font-semibold text-slate-900">{s.count} nafar</span>
+              <span className="font-semibold text-slate-900 dark:text-slate-50">{s.count} nafar</span>
             </li>
           ))}
         </ul>
